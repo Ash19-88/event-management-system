@@ -1,0 +1,59 @@
+#In the following requests the variable baseUrl is used
+#Its value is set here.
+
+@baseUrl = http://localhost:4004/odata/v4/participant/
+
+###  -------------------------------------
+#Get all Participants
+GET {{baseUrl}}/Participants
+
+###  -------------------------------------
+# CREATE participant
+POST {{baseUrl}}/createParticipant
+Content-Type: application/json
+
+{
+    "firstName": "Juan",
+    "lastName": "Carlo",
+    "email": "hhhh.jdc@example.com",
+    "phone": "123456789",
+    "businessPartnerID": "BP12357"
+}
+
+
+###  -------------------------------------
+# UPDATE participant
+PATCH {{baseUrl}}/Participants(4)
+Content-Type: application/json
+
+{
+  "firstName": "Lola",
+    "lastName": "Carola",
+    "email": "jdc@example.com",
+    "phone": "156789",
+
+}
+
+
+###  -------------------------------------
+# READ participant
+GET {{baseUrl}}/readParticipants
+
+
+###  -------------------------------------
+# DELETE participant
+POST  {{baseUrl}}/deleteParticipant
+Content-Type: application/json
+
+{
+  "ID": 4
+}
+
+
+### -------------------------------------
+POST  {{baseUrl}}/participantDetails
+Content-Type: application/json
+
+{
+  "businessPartnerID": "BP001"
+}

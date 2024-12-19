@@ -1,0 +1,82 @@
+#In the following requests the variable baseUrl is used
+#Its value is set here.
+
+@baseUrl = http://localhost:4004/odata/v4/event/
+
+###  -------------------------------------
+#Get all events
+GET {{baseUrl}}/Events
+
+
+###  -------------------------------------
+# Create Event
+POST {{baseUrl}}/createEvent
+Content-Type: application/json
+
+{
+ "name": "October Fest",
+ "startDate": "2024-07-01",
+ "endDate": "2024-07-03", 
+ "location": "Buenos Aires",
+ "description": "Music Festival"
+}
+
+###  -------------------------------------
+# Update Event
+PATCH {{baseUrl}}/Events(3)
+Content-Type: application/json
+
+{
+ "name": "Updated Event",  
+ "startDate": "2024-12-20",  
+ "endDate": "2024-12-20",  
+ "location": "Updated Location",  
+ "description": "Updated description of the event."
+}
+
+###  -------------------------------------
+# READ events
+GET {{baseUrl}}/readEvents
+
+###  -------------------------------------
+# DELETE event
+DELETE {{baseUrl}}/Events(3)
+
+
+###  -------------------------------------
+#Cancel Event
+POST {{baseUrl}}/cancelEvent
+Content-Type: application/json
+
+{
+  "ID": 2,
+  "reason": "Bad weather"
+}
+
+
+###  -------------------------------------
+# Reopen Event
+POST {{baseUrl}}/reopenEvent
+Content-Type: application/json
+
+{
+  "ID": 2
+}
+
+
+
+###  -------------------------------------
+# Register Participant
+POST {{baseUrl}}/registerParticipant
+Content-Type: application/json
+
+{
+  "eventID": 3,
+  "participant": {
+    "firstName": "Juan",
+    "lastName": "Carlo",
+    "email": "hhhh.jdc@example.com",
+    "phone": "123456789",
+    "businessPartnerID": "BP12357"
+  }
+}
