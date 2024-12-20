@@ -2,10 +2,18 @@
 #Its value is set here.
 
 @baseUrl = http://localhost:4004/odata/v4/event/
+@baseUrlApi = http://localhost:4007/odata/v4/
+
+
+
 
 ###  -------------------------------------
 #Get all events
 GET {{baseUrl}}/Events
+
+### -------------------------------------
+# GET all Foo 
+GET {{baseUrlApi}}/Foo
 
 
 ###  -------------------------------------
@@ -63,15 +71,13 @@ Content-Type: application/json
   "ID": 2
 }
 
-
-
 ###  -------------------------------------
 # Register Participant
 POST {{baseUrl}}/registerParticipant
 Content-Type: application/json
 
 {
-  "eventID": 3,
+  "eventID": 1,
   "participant": {
     "firstName": "Juan",
     "lastName": "Carlo",

@@ -5,20 +5,15 @@
   "repository": "https://github.com/Ash19-88/event-management-system.git",
   "license": "UNLICENSED",
   "private": true,
-  "engines": {
-    "node": "^18"
-  },
   "dependencies": {
+    "@cap-js/hana": "^1",
     "@sap-cloud-sdk/connectivity": "^3.24.0",
     "@sap-cloud-sdk/http-client": "^3.24.0",
     "@sap-cloud-sdk/resilience": "^3.24.0",
     "@sap/cds": "^8.6.0",
     "@sap/cds-hana": "^2.0.0",
-    "axios": "^1.7.9",
-    "dotenv": "^16.4.7",
-    "express": "^4",
-    "@cap-js/hana": "^1",
-    "@sap/xssec": "^4"
+    "@sap/xssec": "^4",
+    "express": "^4"
   },
   "devDependencies": {
     "@cap-js/cds-types": "^0.8.0",
@@ -34,8 +29,11 @@
         "kind": "odata-v2",
         "model": "srv/external/API_BUSINESS_PARTNER",
         "credentials": {
-          "destination": "bp_destination",
-          "path": "sap/opu/odata/sap/API_BUSINESS_PARTNER/"
+          "url": "https://my408665-api.s4hana.cloud.sap/",
+          "path": "/sap/opu/odata/sap/API_BUSINESS_PARTNER/",
+          "authentication": "BasicAuthentication",
+          "username": "CAP_BOOTCAMP_S4_API_USER",
+          "password": "WS$UGgbhkG8EEvUpccCgmedHhmHRiWeZVGfvcUPE"
         }
       },
       "[production]": {
